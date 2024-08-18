@@ -1,6 +1,5 @@
 import "./assets/main.css";
 
-import "beercss";
 import "material-dynamic-colors";
 import { createApp } from "vue";
 import App from "./App.vue";
