@@ -1,7 +1,7 @@
 <script setup>
 import LoginForm from "./components/login/form.vue";
 import LogoutButton from "./components/logout/button.vue";
-import { useAuthenticationStore } from "@/components/login/store.js";
+import { useAuthenticationStore } from "./components/login/store.js";
 
 const store = useAuthenticationStore();
 </script>
