@@ -7,8 +7,10 @@
     packages = with pkgs; [
       alejandra
       black
+      cmake
       firebase-tools
       git
+      gcc
       nodejs
       nodejs_20
       nodePackages.prettier
@@ -17,7 +19,7 @@
       prefetch-npm-deps
       python
     ];
-    shellHook = "npm install";
+    shellHook = ''npm install'';
   };
 in {
   inherit default;
