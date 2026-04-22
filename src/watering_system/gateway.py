@@ -2,24 +2,22 @@ import datetime
 import json
 import time
 import socket
+import requests
 
-watering_client = "192.168.1.109"
+watering_client = "192.168.1.245"
 schedule_file_name = "schedule.json"
 
 
-def set_relay(watering_client, state):
-
-    s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    print(f"/relay1/{state}")
+def set_relay(target_ip, state):
+    print(f"/relay1/{state} on {target_ip}", target_ip + f"/relay1/{state}")
+    headers = {"Accept": "*/*"}
     try:
-        s.connect((watering_client, 80))
-        s.send(bytes(f"/relay1/{state}\n", "UTF-8"))
-        print("Message sent to: ", watering_client)
+        response = requests.get(target_ip + f"/relay1/{state}", headers=headers, timeout=10, proxies={"http": None, "https": None})
+        print("Message sent to: ", target_ip)
     except Exception as e:
         print("something went wrong", e)
     finally:
         print("close")
-        s.close
 
 
 def delete_schedule(watering_schedule):
