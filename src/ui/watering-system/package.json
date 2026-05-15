@@ -12,7 +12,9 @@
     "test:e2e": "playwright test"
   },
   "dependencies": {
+    "beercss": "^4.0.20",
     "jose": "^5.6.3",
+    "material-dynamic-colors": "^1.1.4",
     "pinia": "^2.1.7",
     "vue": "^3.4.29"
   },
