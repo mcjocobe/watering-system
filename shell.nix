@@ -2,6 +2,8 @@
   python = pkgs.python311.withPackages (ps:
     with ps; [
       docker
+      uvicorn
+      pytest
     ]);
   default = pkgs.mkShell {
     packages = with pkgs; [
@@ -19,7 +21,7 @@
       prefetch-npm-deps
       python
     ];
-    shellHook = ''npm install'';
+    shellHook = ''npm install src/ui/watering-system/'';
   };
 in {
   inherit default;
