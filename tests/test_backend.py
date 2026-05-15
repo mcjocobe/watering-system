@@ -19,7 +19,7 @@ def mock_pi_pico():
         return HTMLResponse(
             content=f"<body>Relay Status: {state}</body>"
         )
-    config = uvicorn.Config(app, host="0.0.0.0", port=8765, log_level="error")
+    config = uvicorn.Config(app, host="0.0.0.0", port=8765, log_level="error", ws="wsproto")
     server = uvicorn.Server(config)
 
     thread = threading.Thread(target=server.run, daemon=True)
