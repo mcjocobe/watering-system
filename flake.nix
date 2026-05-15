@@ -23,7 +23,7 @@
         default = pkgs.callPackage ./default.nix {};
       in {
         devShells = shells;
-        packages = default;
+        packages = {inherit default;};
       };
     };
 }
