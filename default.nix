@@ -7,9 +7,9 @@
     pname = "ui";
     version = "1.0.0";
 
-    src = ./.;
+    src = ./src/ui/watering-system;
 
-    npmDepsHash = "sha256-eQw7dLQgXY9/I6ZUExYcx9kOEzImr3FsDIECn3iV/5A=";
+    npmDepsHash = "sha256-ltWimdQmvAqwJj8DJFUxBkMiDWQd/BPbp+W3mprFCBI=";
   };
 in
   stdenv.mkDerivation {
