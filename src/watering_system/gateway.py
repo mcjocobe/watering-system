@@ -7,6 +7,7 @@ import requests
 watering_client = "192.168.1.245"
 schedule_file_name = "schedule.json"
 
+mac_address = "d8:3a:dd:96:4b:64"
 
 def set_relay(target_ip, state):
     print(f"/relay1/{state} on {target_ip}", target_ip + f"/relay1/{state}")
@@ -19,6 +20,16 @@ def set_relay(target_ip, state):
     finally:
         print("close")
 
+def get_relay_status(target_ip, state):
+    print("Getting relay status on", target_ip + f"/relay1/status")
+    headers = {"Accept": "*/*"}
+    try:
+        response = requests.get(target_ip + f"/relay1/status", headers=headers, timeout=10, proxies={"http": None, "https": None})
+        print("Message sent to: ", target_ip)
+    except Exception as e:
+        print("something went wrong", e)
+    finally:
+        print("close")
 
 def delete_schedule(watering_schedule):
     with open(schedule_file_name, "w") as file:
